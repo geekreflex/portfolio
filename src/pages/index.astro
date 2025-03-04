@@ -53,19 +53,28 @@ const featuredProjects = projects
           featuredProjects.map((project) => (
             <article>
               <div class='title-row'>
-                <a
-                  href={project.data.url}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
-                  {project.data.title}
-                </a>
+                <p class='subtitle'>{project.data.title}</p>
               </div>
               <p class='muted-text'>{project.data.description}</p>
               {project.data.techs && (
                 <div class='tags'>
                   {project.data.techs.map((tech) => (
                     <span>{tech}</span>
+                  ))}
+                </div>
+              )}
+
+              {project.data.links && (
+                <div class='project-links'>
+                  {project.data.links.map((link) => (
+                    <span>
+                      <a href={link.url}>{link.name}</a>
+                      {link.name === 'Github' ? (
+                        <i class='fa-brands fa-github' />
+                      ) : (
+                        <i class='fa-solid fa-arrow-up-right-from-square' />
+                      )}
+                    </span>
                   ))}
                 </div>
               )}
@@ -140,11 +149,28 @@ const featuredProjects = projects
   }
 
   .tags span {
-    font-size: var(--text-sm);
+    font-size: var(--text-xs);
     opacity: 0.5;
     background-color: var(--border-color);
     padding: 4px 10px;
     border-radius: 6px;
+  }
+
+  .project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .project-links span {
+    font-size: var(--text-sm);
+    background-color: var(--border-color);
+    opacity: 0.7;
+    padding: 5px 15px;
+  }
+
+  .project-links span:hover {
+    opacity: 1;
   }
 
   .social-links {
@@ -152,6 +178,7 @@ const featuredProjects = projects
     gap: 1rem;
     margin-top: 2rem;
     opacity: 0.7;
+    font-size: var(--text-sm);
   }
 
   @media (max-width: 640px) {

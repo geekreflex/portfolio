@@ -239,7 +239,8 @@ a:not(.category-link):hover::after {
 
 /* Special links that should not have the default style */
 .section-header a,
-.social-links a {
+.social-links a,
+.project-links a {
   color: var(--text-color);
   text-decoration: none;
 }
