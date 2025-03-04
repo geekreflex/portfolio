@@ -30,7 +30,7 @@ const featuredProjects = projects
 
       {site.aboutMe.map((paragraph) => <p class='paragraph'>{paragraph}</p>)}
 
-      <!-- {
+      {
         site.socialLinks && (
           <div class='social-links'>
             {site.socialLinks.map(({ platform, url }) => (
@@ -40,12 +40,12 @@ const featuredProjects = projects
             ))}
           </div>
         )
-      } -->
+      }
     </Section>
 
     <Section class='section'>
       <div class='section-header'>
-        <h1>{site.sections.projects.title}</h1>
+        <h2>{site.sections.projects.title}</h2>
         <a href='/projects'>{site.sections.projects.viewAllText}</a>
       </div>
       <ContentList>
@@ -136,11 +136,15 @@ const featuredProjects = projects
     display: flex;
     gap: 0.75rem;
     margin-top: 0.5rem;
+    flex-wrap: wrap;
   }
 
   .tags span {
     font-size: var(--text-xs);
     opacity: 0.5;
+    background-color: var(--border-color);
+    padding: 4px 10px;
+    border-radius: 6px;
   }
 
   .social-links {
