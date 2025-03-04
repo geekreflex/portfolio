@@ -1,13 +1,19 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Container from '../components/ui/Container.astro';
+import { getEntry } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const siteConfig = await getEntry('site', 'home');
+
+if (!siteConfig) {
+  throw new Error('Site configuration not found');
+}
+
+const site: CollectionEntry<'site'>['data'] = siteConfig.data;
 ---
 
-<BaseLayout title='Joshua' description='My portfolio website'>
+<BaseLayout title={`${site.name} - Portfolio`} description={site.introduction}>
   <Container>
     <h1>Joshua Nwosu</h1>
   </Container>
