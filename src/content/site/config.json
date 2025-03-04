@@ -1,31 +1,36 @@
 {
-    "home": {
-      "name": "Joshua Nwosu",
-      "title": "Software Engineer & Curious Tinkerer",
-      "introduction": "I’m constantly learning and evolving. I love diving into new ideas and finding creative ways to solve problems.",
-      "sections": {
-        "blog": {
-          "title": "Writing",
-          "viewAllText": "View all posts"
-        },
-        "projects": {
-          "title": "Projects",
-          "viewAllText": "View all projects"
-        },
-        "experience": {
-          "title": "Experience",
-          "viewAllText": "View full résumé"
-        }
+  "home": {
+    "name": "Joshua Nwosu",
+    "title": "Software Engineer with a Curious Mind",
+    "introduction": "I’m constantly learning and evolving. I love diving into new ideas and finding creative ways to solve problems.",
+    "aboutMe": [
+      "I’m a Software Engineer with a passion for building intuitive and scalable applications. I thrive on solving complex problems and turning ideas into functional, user-friendly solutions.",
+      "Beyond coding, I consider myself a curious tinkerer, always eager to explore new technologies, experiment with ideas, and push the boundaries of what’s possible.",
+      "When I’m not coding, you’ll find me reading about emerging tech trends, working on personal projects, or engaging in thought-provoking discussions about software, design, and innovation."
+    ],
+    "sections": {
+      "blog": {
+        "title": "Writing",
+        "viewAllText": "View all posts"
       },
-      "socialLinks": [
-        {
-          "platform": "GitHub",
-          "url": "https://github.com/joshnwosu"
-        },
-        {
-          "platform": "Twitter",
-          "url": "https://x.com/joshnwosu_"
-        }
-      ]
-    }
+      "projects": {
+        "title": "Projects",
+        "viewAllText": "View all projects"
+      },
+      "experience": {
+        "title": "Experience",
+        "viewAllText": "View full résumé"
+      }
+    },
+    "socialLinks": [
+      {
+        "platform": "GitHub",
+        "url": "https://github.com/joshnwosu"
+      },
+      {
+        "platform": "Twitter",
+        "url": "https://x.com/joshnwosu_"
+      }
+    ]
   }
+}

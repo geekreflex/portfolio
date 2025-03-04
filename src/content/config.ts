@@ -49,6 +49,7 @@ const site = defineCollection({
     name: z.string(),
     title: z.string(),
     introduction: z.string(),
+    aboutMe: z.array(z.string()),
     sections: z.object({
       blog: z.object({
         title: z.string(),

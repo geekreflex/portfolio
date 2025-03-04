@@ -3,6 +3,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Container from '../components/ui/Container.astro';
 import { getEntry } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
+import Section from '../components/ui/Section.astro';
+import ContentList from '../components/shared/ContentList.astro';
+import { getCollection } from 'astro:content';
 
 const siteConfig = await getEntry('site', 'home');
 
@@ -11,10 +14,65 @@ if (!siteConfig) {
 }
 
 const site: CollectionEntry<'site'>['data'] = siteConfig.data;
+
+const projects = await getCollection('projects');
+const featuredProjects = projects
+  .filter((project: CollectionEntry<'projects'>) => project.data.featured)
+  .slice(0, 3);
 ---
 
 <BaseLayout title={`${site.name} - Portfolio`} description={site.introduction}>
   <Container>
-    <h1>Joshua Nwosu</h1>
+    <section class='hero'>
+      <h1>{site.name}</h1>
+      <p class='subtitle'>{site.title}</p>
+      <!-- <p class='subtitle'>{site.introduction}</p> -->
+
+      {site.aboutMe.map((paragraph) => <p class='paragraph'>{paragraph}</p>)}
+
+      <!-- {
+        site.socialLinks && (
+          <div class='social-links'>
+            {site.socialLinks.map(({ platform, url }) => (
+              <a href={url} target='_blank' rel='noopener noreferrer'>
+                {platform}
+              </a>
+            ))}
+          </div>
+        )
+      } -->
+    </section>
+
+    <section class='section'>
+      <div class='section-header'>
+        <h2>{site.sections.projects.title}</h2>
+        <a href='/projects'>{site.sections.projects.viewAllText}</a>
+      </div>
+      <ContentList>
+        {
+          featuredProjects.map((project) => (
+            <article>
+              <div class='title-row'>
+                <a
+                  href={project.data.url}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  {project.data.title}
+                </a>
+              </div>
+              <p class='muted-text'>{project.data.description}</p>
+              {project.data.techs && (
+                <div class='tags'>
+                  {project.data.techs.map((tech) => (
+                    <span>{tech}</span>
+                  ))}
+                </div>
+              )}
+            </article>
+          ))
+        }
+      </ContentList>
+    </section>
   </Container>
 </BaseLayout>
