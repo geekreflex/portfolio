@@ -19,6 +19,9 @@ const sortedPosts = posts.sort(
   <Container>
     <BaseHero title='Blog' description='Read my latest blog posts' />
 
+    <!-- This is just for spacing -->
+    <div style='height: 4rem;'></div>
+
     <ContentList>
       {
         sortedPosts.map((post) => (
