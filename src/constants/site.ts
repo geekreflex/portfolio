@@ -18,6 +18,10 @@ export const NAVIGATION: {
     { name: 'Josh.', path: '/' },
     { name: 'Projects', path: '/projects' },
     { name: 'Blog', path: '/blog' },
+    {
+      name: "Let's Chat",
+      path: 'mailto:joshuanwosu078@gmail.com',
+    },
   ],
 } as const;
 

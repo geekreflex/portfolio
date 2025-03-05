@@ -22,7 +22,12 @@ const isActive = (path: string) => {
           tabindex={index === 0 ? 0 : -1}
           data-nav-item
         >
-          <span class='nav-text'>{name}</span>
+          <span class='nav-text'>
+            {name === "Let's Chat" && (
+              <i class='fa-solid fa-envelope-open-text' />
+            )}
+            {name}
+          </span>
           {isActive(path) && <span class='sr-only'>(current page)</span>}
         </a>
       ))
