@@ -210,7 +210,6 @@ h6 {
 
 p {
   margin-bottom: 1rem;
-  max-width: 70ch;
   line-height: 1.6;
   letter-spacing: -0.03em;
 }
@@ -348,7 +347,7 @@ td {
 .subtitle {
   margin-top: 0.5rem;
   font-size: var(--text-lg);
-  font-style: italic;
+  /* font-style: italic; */
 }
 
 .paragraph {

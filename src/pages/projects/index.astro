@@ -1,10 +1,14 @@
 ---
+import BaseHero from '../../components/shared/BaseHero.astro';
 import Container from '../../components/ui/Container.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title='Projects' description='View all my projects'>
+<BaseLayout title='Projects' description='My projects'>
   <Container>
-    <h1>Hello Projects Here.</h1>
+    <BaseHero
+      title='Project'
+      description="Here are some of the projects I've worked on. Each one represents something I built, learned from, or enjoyed creating."
+    />
   </Container>
 </BaseLayout>

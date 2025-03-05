@@ -6,6 +6,7 @@ import type { CollectionEntry } from 'astro:content';
 import Section from '../components/ui/Section.astro';
 import ContentList from '../components/shared/ContentList.astro';
 import { getCollection } from 'astro:content';
+import BaseHero from '../components/shared/BaseHero.astro';
 
 const siteConfig = await getEntry('site', 'home');
 
@@ -23,9 +24,10 @@ const featuredProjects = projects
 
 <BaseLayout title={`${site.name} - Portfolio`} description={site.introduction}>
   <Container>
+    <BaseHero title={site.name} description={site.title} />
     <Section class='hero'>
-      <h1>{site.name}</h1>
-      <p class='subtitle'>{site.title}</p>
+      <!-- <h1>{site.name}</h1> -->
+      <!-- <p class='subtitle'>{site.title}</p> -->
       <!-- <p class='subtitle'>{site.introduction}</p> -->
 
       {site.aboutMe.map((paragraph) => <p class='paragraph'>{paragraph}</p>)}

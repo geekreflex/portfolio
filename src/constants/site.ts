@@ -15,7 +15,7 @@ export const NAVIGATION: {
   main: NavigationItem[];
 } = {
   main: [
-    { name: 'Home', path: '/' },
+    { name: 'Josh.', path: '/' },
     { name: 'Projects', path: '/projects' },
     { name: 'Blog', path: '/blog' },
   ],

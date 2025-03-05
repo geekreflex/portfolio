@@ -1,7 +1,7 @@
 {
   "home": {
     "name": "Joshua Nwosu",
-    "title": "Software Engineer with a Curious Mind",
+    "title": "Passionate about clean, friendly UI",
     "introduction": "I’m constantly learning and evolving. I love diving into new ideas and finding creative ways to solve problems.",
     "aboutMe": [
       "I’m a Software Engineer with a passion for building intuitive and scalable applications. I thrive on solving complex problems and turning ideas into functional, user-friendly solutions.",
@@ -30,6 +30,10 @@
       {
         "platform": "Twitter",
         "url": "https://x.com/joshnwosu_"
+      },
+      {
+        "platform": "Download Résumé",
+        "url": "https://google.com"
       }
     ]
   }
