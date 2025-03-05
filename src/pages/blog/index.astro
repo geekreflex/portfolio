@@ -27,6 +27,7 @@ const sortedPosts = posts.sort(
             description={post.data.description}
             url={`/blog/${post.id}`}
             date={post.data.publishedAt}
+            tags={post.data.tags}
           />
         ))
       }
