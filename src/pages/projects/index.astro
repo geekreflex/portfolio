@@ -1,7 +1,12 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseHero from '../../components/shared/BaseHero.astro';
 import Container from '../../components/ui/Container.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContentList from '../../components/shared/ContentList.astro';
+import ProjectCard from '../../components/ui/ProjectCard.astro';
+
+const projects = await getCollection('projects');
 ---
 
 <BaseLayout title='Projects' description='My projects'>
@@ -10,5 +15,21 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       title='Project'
       description="Here are some of the projects I've worked on. Each one represents something I built, learned from, or enjoyed creating."
     />
+
+    <!-- This is just for spacing -->
+    <div style='height: 4rem;'></div>
+
+    <ContentList>
+      {
+        projects.map((project) => (
+          <ProjectCard
+            title={project.data.title}
+            description={project.data.description}
+            links={project.data.links}
+            techs={project.data.techs}
+          />
+        ))
+      }
+    </ContentList>
   </Container>
 </BaseLayout>

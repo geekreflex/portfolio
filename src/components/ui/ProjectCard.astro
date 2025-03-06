@@ -1,0 +1,97 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  techs?: string[];
+  links?: any[];
+}
+
+const { title, description, techs, links } = Astro.props;
+---
+
+<article>
+  <div class='title-row'>
+    <p class='subtitle'>{title}</p>
+  </div>
+  <p class='muted-text'>{description}</p>
+  {
+    techs && (
+      <div class='tags'>
+        {techs.map((tech) => (
+          <span>{tech}</span>
+        ))}
+      </div>
+    )
+  }
+
+  {
+    links && (
+      <div class='project-links'>
+        {links.map((link) => (
+          <span>
+            <a href={link.url}>{link.name}</a>
+            {link.name === 'Github' ? (
+              <i class='fa-brands fa-github' />
+            ) : (
+              <i class='fa-solid fa-arrow-up-right-from-square' />
+            )}
+          </span>
+        ))}
+      </div>
+    )
+  }
+</article>
+
+<style>
+  .title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    font-size: var(--text-sm);
+  }
+
+  .company-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .company-logo {
+    width: 1.5rem;
+    height: 1.5rem;
+    object-fit: contain;
+  }
+
+  .tags {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .tags span {
+    font-size: var(--text-xs);
+    opacity: 0.5;
+    background-color: var(--border-color);
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+
+  .project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .project-links span {
+    font-size: var(--text-sm);
+    background-color: var(--border-color);
+    opacity: 0.7;
+    padding: 5px 15px;
+  }
+
+  .project-links span:hover {
+    opacity: 1;
+  }
+</style>
