@@ -7,6 +7,7 @@ import Section from '../components/ui/Section.astro';
 import ContentList from '../components/shared/ContentList.astro';
 import { getCollection } from 'astro:content';
 import BaseHero from '../components/shared/BaseHero.astro';
+import ProjectCard from '../components/ui/ProjectCard.astro';
 
 const siteConfig = await getEntry('site', 'home');
 
@@ -24,12 +25,12 @@ const featuredProjects = projects
 
 <BaseLayout title={`${site.name} - Portfolio`} description={site.introduction}>
   <Container>
-    <BaseHero title={site.name} description={site.title} />
+    <BaseHero
+      title={site.name}
+      description={site.title}
+      resumeLink={['Download Résumé', 'https://google.com']}
+    />
     <Section class='hero'>
-      <!-- <h1>{site.name}</h1> -->
-      <!-- <p class='subtitle'>{site.title}</p> -->
-      <!-- <p class='subtitle'>{site.introduction}</p> -->
-
       {site.aboutMe.map((paragraph) => <p class='paragraph'>{paragraph}</p>)}
 
       {
@@ -59,34 +60,12 @@ const featuredProjects = projects
       <ContentList>
         {
           featuredProjects.map((project) => (
-            <article>
-              <div class='title-row'>
-                <p class='subtitle'>{project.data.title}</p>
-              </div>
-              <p class='muted-text'>{project.data.description}</p>
-              {project.data.techs && (
-                <div class='tags'>
-                  {project.data.techs.map((tech) => (
-                    <span>{tech}</span>
-                  ))}
-                </div>
-              )}
-
-              {project.data.links && (
-                <div class='project-links'>
-                  {project.data.links.map((link) => (
-                    <span>
-                      <a href={link.url}>{link.name}</a>
-                      {link.name === 'Github' ? (
-                        <i class='fa-brands fa-github' />
-                      ) : (
-                        <i class='fa-solid fa-arrow-up-right-from-square' />
-                      )}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </article>
+            <ProjectCard
+              title={project.data.title}
+              description={project.data.description}
+              links={project.data.links}
+              techs={project.data.techs}
+            />
           ))
         }
       </ContentList>
@@ -143,50 +122,11 @@ const featuredProjects = projects
     object-fit: contain;
   }
 
-  time {
-    font-size: var(--text-xs);
-    opacity: 0.5;
-    white-space: nowrap;
-  }
-
-  .tags {
-    display: flex;
-    gap: 0.75rem;
-    margin-top: 0.5rem;
-    flex-wrap: wrap;
-  }
-
-  .tags span {
-    font-size: var(--text-xs);
-    opacity: 0.5;
-    background-color: var(--border-color);
-    padding: 4px 10px;
-    border-radius: 6px;
-  }
-
-  .project-links {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-
-  .project-links span {
-    font-size: var(--text-sm);
-    background-color: var(--border-color);
-    opacity: 0.7;
-    padding: 5px 15px;
-  }
-
-  .project-links span:hover {
-    opacity: 1;
-  }
-
   .social-links {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
     margin-top: 2rem;
-
     font-size: var(--text-sm);
   }
 

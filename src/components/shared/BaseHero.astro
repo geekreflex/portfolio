@@ -2,14 +2,24 @@
 interface Props {
   title: string;
   description: string;
+  resumeLink?: string[];
 }
 
-const { title, description } = Astro.props;
+const { title, description, resumeLink } = Astro.props;
 ---
 
 <section class='hero'>
   <h1>{title}</h1>
   <p class='subtitle'>{description}</p>
+  {
+    resumeLink && (
+      <a href={resumeLink[1]} target='_blank' rel='noopener noreferrer'>
+        {resumeLink[0]}
+
+        <i class='fa-solid fa-download' />
+      </a>
+    )
+  }
 </section>
 
 <style>
@@ -19,4 +29,10 @@ const { title, description } = Astro.props;
   /* .hero {
     padding: 4rem 0;
   } */
+  a {
+    font-size: var(--text-sm);
+    opacity: 0.7;
+    color: var(--text-color);
+    text-decoration: none;
+  }
 </style>
