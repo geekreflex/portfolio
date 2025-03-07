@@ -28,7 +28,7 @@ const featuredProjects = projects
     <BaseHero
       title={site.name}
       description={site.title}
-      resumeLink={['Download Résumé', 'https://google.com']}
+      resumeLink={['Download Résumé', './Josh_Nwosu_Resume.pdf']}
     />
     <Section class='hero'>
       {site.aboutMe.map((paragraph) => <p class='paragraph'>{paragraph}</p>)}
@@ -40,11 +40,7 @@ const featuredProjects = projects
               <a href={url} target='_blank' rel='noopener noreferrer'>
                 {platform}
 
-                {platform !== 'Download Résumé' ? (
-                  <i class='fa-solid fa-arrow-up-right-from-square' />
-                ) : (
-                  <i class='fa-solid fa-download' />
-                )}
+                <i class='fa-solid fa-arrow-up-right-from-square' />
               </a>
             ))}
           </div>
