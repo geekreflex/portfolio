@@ -28,7 +28,10 @@ const featuredProjects = projects
     <BaseHero
       title={site.name}
       description={site.title}
-      resumeLink={['Download Résumé', './Josh_Nwosu_Resume.pdf']}
+      resumeLink={[
+        'Download Résumé',
+        'https://docs.google.com/document/d/1P4euC8ApE5zCRbrSNxxVwm4tkFCA86AmTr6eR74xdXE/edit?usp=sharing',
+      ]}
     />
     <Section class='hero'>
       {site.aboutMe.map((paragraph) => <p class='paragraph'>{paragraph}</p>)}
