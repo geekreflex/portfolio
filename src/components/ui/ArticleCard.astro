@@ -34,16 +34,23 @@ import { formatDate } from '../../utils/date';
     justify-content: space-between;
     align-items: baseline;
     gap: 1rem;
+    margin-bottom: 1rem;
   }
 
   .title-row a {
-    font-size: var(--text-lg);
-    text-decoration: none;
-    color: var(--text-color);
+    flex: 2;
+    font-size: var(--text-xl);
+    font-weight: 400;
   }
 
   .title-row a:hover {
     color: var(--link-color);
+  }
+
+  .title-row time {
+    flex: 1;
+    white-space: nowrap;
+    text-align: right;
   }
 
   .tags {
